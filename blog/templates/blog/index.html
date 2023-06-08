@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  My Blog
+{% endblock title %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{%static "blog/index.css"%}">
+  <link rel="stylesheet" href="{%static "blog/post.css"%}">
+{%endblock%}
+
+{% block content %}
+  <section id="welcome">
+    <header>
+      <img src="{%static "blog/images/lucas.png"%}" alt="Lucas - Author of this blog">
+      <h2>LUCAS BLOG</h2>
+    </header>
+    <p>Hi, I am Lucas and I love coding and have many hobbies!</p>
+  </section>
+
+  <section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+
+    <ul>
+      {%for post in posts%}
+        {%include "blog/includes/post.html"%}
+      {%endfor%}
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>What I Do</h2>
+    <p>
+      I love programming, martial arts, and I am also an agronomyst and bartender!
+    </p>
+    <p>
+      My goal is to keep growing as a developer and to make usefull tools for people
+    </p>
+  </section>
+{% endblock content %}
